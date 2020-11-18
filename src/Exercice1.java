@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 import java.util.Scanner;
+import java.util.InputMismatchException;
 /**
  *
  * @author Zaafrane
@@ -15,8 +16,7 @@ public class Exercice1 {
     }
     
     public static void main(String[] args) {
-       
-       
+              
            try ( 
             Scanner scanner = new Scanner( System.in ) ) {
             System.out.print( "Veuillez saisir la quantite : " );
@@ -25,13 +25,14 @@ public class Exercice1 {
             System.out.print( "Veuillez saisir le prix unite : " );
             double b=scanner.nextDouble();
          
-                       
-           
-            
             System.out.println(calculateTotalPrice(a,b));
+
+           }catch(Exception e){
+                if (e instanceof java.util.InputMismatchException) {
+                    System.err.println("Inputs must be numeric"); ;
+            } 
+           }
           
-            
-        }catch(Exception e){e.getMessage();}
     }
     
 }
